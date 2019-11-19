@@ -48,7 +48,7 @@ def login_user(data):
       user = User.objects.get(email=email)
 
       if bcrypt.check_password_hash(user.password, password):
-        token = generate_token({ 'email': user.email, 'names': user.names, 'rol': user.rol })
+        token = generate_token({ 'id': str(user.id), 'names': user.names, 'rol': user.rol })
 
         json = {
           'message': ['Usuario logueado correctamente'],
