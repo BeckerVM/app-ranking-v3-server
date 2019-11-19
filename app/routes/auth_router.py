@@ -15,8 +15,9 @@ def register_user():
 @auth_bp.route('/protected', methods=['GET'])
 @auth
 def protected():
+  print(request.user)
   return {
-    'success': True
+    'user': request.user
   }
 
 # Ruta api/auth/login/<type_user> - POST

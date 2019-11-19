@@ -4,6 +4,7 @@ from flask_mongoengine import MongoEngine
 from flask_bcrypt import Bcrypt
 
 DB_URI = 'mongodb+srv://becker2203:0SiLKOo6opZm5Tfg@cluster0-fz7se.mongodb.net/app_ranking?retryWrites=true&w=majority'
+SECRET_KEY = 'secret'
 
 db = MongoEngine()
 app = Flask(__name__)

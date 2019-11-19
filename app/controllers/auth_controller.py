@@ -3,6 +3,7 @@ from mongoengine import DoesNotExist
 from app.models.user_model import Users as User
 from app.validators.register_validators import validate_register_data
 from app.validators.login_validators import validate_login_data
+from app.services.auth_services import generate_token
 
 
 def register_user(data):
@@ -47,8 +48,11 @@ def login_user(data):
       user = User.objects.get(email=email)
 
       if bcrypt.check_password_hash(user.password, password):
+        token = generate_token({ 'email': user.email, 'names': user.names, 'rol': user.rol })
+
         json = {
-          'message': ['Usuario logueado correctamente']
+          'message': ['Usuario logueado correctamente'],
+          'token': token
         }, 200
       else:
         json = {
