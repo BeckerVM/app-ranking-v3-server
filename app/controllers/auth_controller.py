@@ -52,7 +52,8 @@ def login_user(data):
 
         json = {
           'message': ['Usuario logueado correctamente'],
-          'token': token
+          'token': token,
+          'isAuthenticated': True
         }, 200
       else:
         json = {
