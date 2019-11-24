@@ -11,13 +11,13 @@ def register_user():
   json = register(request.json)
   return json
 
-
+# Ruta api/auth/protected - GET
 @auth_bp.route('/protected', methods=['GET'])
 @auth
 def protected():
-  print(request.user)
   return {
-    'user': request.user
+    'user': request.user,
+    'isAuthenticated': True
   }
 
 # Ruta api/auth/login/<type_user> - POST

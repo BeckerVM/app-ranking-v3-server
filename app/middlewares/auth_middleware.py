@@ -6,7 +6,7 @@ from jwt import InvalidTokenError
 def auth(callback):
   @wraps(callback)
   def wrapper(*args, **kwargs):
-    if request.headers.get('Authorization') == '':
+    if request.headers.get('Authorization') == 'JWT notoken':
       return {
         'message': 'No token, autorizacion denegada'
       }, 401
