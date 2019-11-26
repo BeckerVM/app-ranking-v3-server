@@ -62,11 +62,11 @@ def login_user(data):
         }, 200
       else:
         json = {
-          'error': ['Usuario o contraseña incorrecta']
+          'error': ['Usuario o contraseña incorrecta intentalo nuevamente.']
         }, 400
     except DoesNotExist:
       json = {
-        'error': ['Usuario no existente']
+        'error': ['Usuario no existente intentalo nuevamente.']
       }, 400
 
   return json
